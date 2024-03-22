@@ -10,5 +10,6 @@ urlpatterns = [
     path('alunoContact', views.contact_view, name='contato'),
     path('aluno/create/', views.AlunoCreateViews.as_view(), name='aluno-create'),
     path('aluno/<int:pk>/update/', AlunoUpdateView.as_view(), name='aluno-update'),
+    path('alunoDelete/<int:id>', views.deleteAluno, name='aluno-delete')
 ]
 

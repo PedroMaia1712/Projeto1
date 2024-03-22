@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from .models import Aluno
 from django.http import HttpResponse
 
@@ -42,4 +42,7 @@ class AlunoUpdateView(UpdateView):
     template_name = 'main/aluno_form.html'
     success_url = reverse_lazy('aluno-lista')
 
-    
+def deleteAluno(request, id):
+    aluno = get_object_or_404(Aluno, pk=id)
+    aluno.delete()
+    return redirect('/')
